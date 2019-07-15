@@ -1,8 +1,5 @@
 public class Veiculo{
-    public enum CategoriaVeiculo{
-        SIMPLES,NORMAL,LUXO;
-    }
-
+    public enum CategoriaVeiculo{SIMPLES,NORMAL,LUXO;}
     private String placa;
     private String marca;
     private String cor;
