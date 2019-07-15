@@ -1,3 +1,21 @@
+import java.util.List;
+
+
+public class App {
+    public static void main(String args[]){
+        List<Veiculo> veiculos;
+
+        veiculos = PersistenciaVeiculos.carregaVeiculos();
+        veiculos.forEach(v->System.out.println(v));
+        /*
+        veiculos.add(new Veiculo("XYZ2W11","FIAT","AMARELO",Veiculo.CategoriaVeiculo.SIMPLES));
+        PersistenciaVeiculos.persisteVeiculos(veiculos);
+        veiculos = PersistenciaVeiculos.carregaVeiculos();
+        veiculos.forEach(v->System.out.println(v));
+        */
+    }
+}
+/*
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -5,7 +23,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+*/
 /*
 Usando o apache commons cvs sem maven
 Extrair o arquivo commons-csv-1.7.jar para o diretorio do projeto
@@ -14,6 +32,7 @@ Para compilar no Linux: javac -cp commons-csv-1.7.jar App.java
 
 Para executar: java -cp .;.\commons-csv-1.7.jar App.java
 */
+/*
 public class App {
     private static final String SAMPLE_CSV_FILE_PATH = "veiculos.dat";
 
@@ -40,3 +59,4 @@ public class App {
         }
     }
 }
+*/

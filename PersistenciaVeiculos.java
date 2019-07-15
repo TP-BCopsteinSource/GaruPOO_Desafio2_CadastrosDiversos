@@ -3,12 +3,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
+
 
 
 
@@ -22,25 +28,24 @@ public class PersistenciaVeiculos {
         String caminhoCompleto = currDir+"\\"+nArq;
         Path refArq = Paths.get(caminhoCompleto);
 
-        try (Scanner sc = new Scanner(Files.newBufferedReader(refArq, Charset.defaultCharset()))){ 
-            sc.useDelimiter("[;\n]"); // separadores: ; e nova linha 
-            String placa;
-            String marca;
-            String cor;
-            Veiculo.CategoriaVeiculo categoria;
-            while (sc.hasNext()){ 
-                placa = sc.next(); 
-                marca = sc.next();
-                cor = sc.next();
-                categoria = Veiculo.CategoriaVeiculo.valueOf(sc.next());
+        try {
+            Reader reader = Files.newBufferedReader(refArq);
+            //CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
+            Iterable<CSVRecord> csvRecords = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(reader);            
+            for (CSVRecord csvRecord : csvRecords) {
+                String placa = csvRecord.get("placa");
+                String marca = csvRecord.get("marca");
+                String cor = csvRecord.get("cor");
+                String catAux = csvRecord.get("categoria");
+                Veiculo.CategoriaVeiculo categoria = Veiculo.CategoriaVeiculo.valueOf(catAux);
                 Veiculo veiculo = new Veiculo(placa,marca,cor,categoria);
                 veiculos.add(veiculo);
             }
-         }catch (IOException x){ 
-             System.err.format("Erro de E/S: %s%n", x);
-             return null;
-         } 
-         return veiculos;
+        }catch(IOException e){
+            System.err.format("Erro de E/S: %s%n", e); 
+            return null;
+        }
+        return veiculos;
     }
 
     public static boolean persisteVeiculos(List<Veiculo> veiculos){
