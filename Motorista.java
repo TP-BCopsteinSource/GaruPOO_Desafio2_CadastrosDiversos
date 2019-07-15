@@ -14,7 +14,7 @@ public class Motorista {
 		return null;
 	}
 
-	public FormaPagto[] getFormaPgto() {
+	public FormaPagamento[] getFormaPgto() {
 		return null;
 	}
 

@@ -15,11 +15,8 @@ import java.nio.file.Path;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 
-
-
-
 public class PersistenciaVeiculos {
-    private static final String nArq = "Veiculos.dat";
+    private static final String nArq = "veiculos.dat";
 
     public static List<Veiculo> carregaVeiculos() {
         List<Veiculo> veiculos = new LinkedList<>();

@@ -5,8 +5,15 @@ public class App {
     public static void main(String args[]){
         List<Veiculo> veiculos;
 
+        System.out.println("Veiculos:");
         veiculos = PersistenciaVeiculos.carregaVeiculos();
         veiculos.forEach(v->System.out.println(v));
+
+        List<Passageiro> passageiros;
+        System.out.println("\nPassageiros:");
+        passageiros = PersistenciaPassageiro.carregaPassageiros();
+        passageiros.forEach(p->System.out.println(p));
+
         /*
         veiculos.add(new Veiculo("XYZ2W11","FIAT","AMARELO",Veiculo.CategoriaVeiculo.SIMPLES));
         PersistenciaVeiculos.persisteVeiculos(veiculos);

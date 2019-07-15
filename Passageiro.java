@@ -1,14 +1,13 @@
 public class Passageiro {
-	public enum FormaPgto {DINHEIRO, CARTAO}
 	private String cpf;
 	private String nome;
-	private FormaPgto formaPgto;
+	private FormaPagamento formaPgto;
 	private String nroCartao;
 	private int pontuacaoAcumulada;
 	private int qtdadeAvaliacoes;
 
 	// Versao para carregar passageiros do arquivo
-	public Passageiro(String cpf, String nome, FormaPgto formaPgto, String nroCartao, int pontuacaoAcumulada,
+	public Passageiro(String cpf, String nome, FormaPagamento formaPgto, String nroCartao, int pontuacaoAcumulada,
 			int qtdadeAvaliacoes) {
 		this.cpf = cpf;
 		this.nome = nome;
@@ -19,7 +18,7 @@ public class Passageiro {
 	}
 
 	// Versao para criar passageiros novos
-	public Passageiro(String cpf, String nome, FormaPgto formaPgto, String nroCartao) {
+	public Passageiro(String cpf, String nome, FormaPagamento formaPgto, String nroCartao) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.formaPgto = formaPgto;
@@ -37,7 +36,7 @@ public class Passageiro {
 		return nome;
 	}
 
-	public FormaPgto getFormaPgto() {
+	public FormaPagamento getFormaPgto() {
 		return formaPgto;
 	}
 
