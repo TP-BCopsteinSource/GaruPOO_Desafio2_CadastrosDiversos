@@ -1,3 +1,3 @@
 public enum FormaPagamento{
-    DINHEIRO,CARTAO;
+    DINHEIRO,CARTAO,TODAS;
 }
