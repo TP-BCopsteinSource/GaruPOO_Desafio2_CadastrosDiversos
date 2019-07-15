@@ -15,10 +15,17 @@ public class App {
         passageiros.forEach(p->System.out.println(p));
 
         /*
-        veiculos.add(new Veiculo("XYZ2W11","FIAT","AMARELO",Veiculo.CategoriaVeiculo.SIMPLES));
+        veiculos.add(new Veiculo("WQY8J833","PORSHE","PRETO",Veiculo.CategoriaVeiculo.LUXO));
         PersistenciaVeiculos.persisteVeiculos(veiculos);
         veiculos = PersistenciaVeiculos.carregaVeiculos();
+        System.out.println("\nNovos veiculos:");
         veiculos.forEach(v->System.out.println(v));
+
+        passageiros.add(new Passageiro("9857643899","MINIE",FormaPagamento.CARTAO,"876098267",10,2));
+        PersistenciaPassageiro.persistePassageiros(passageiros);
+        passageiros = PersistenciaPassageiro.carregaPassageiros();
+        System.out.println("\nNova lista de passageiros:");
+        passageiros.forEach(p->System.out.println(p));
         */
     }
 }

@@ -48,9 +48,10 @@ public class PersistenciaVeiculos {
     public static boolean persisteVeiculos(List<Veiculo> veiculos){
         Path path = Paths.get(nArq); 
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path, Charset.defaultCharset()))){ 
+            writer.println("placa,marca,cor,categoria");
             for(Veiculo v:veiculos) 
                 writer.format(Locale.ENGLISH,
-                		      "%s;%s;%s;%s;",
+                		      "%s,%s,%s,%s\n",
                               v.getPlaca(),v.getMarca(),
                               v.getCor(),v.getCategoria().toString()); 
         } 

@@ -1,7 +1,9 @@
+import java.util.Locale;
 import java.util.List;
 import java.util.LinkedList;
 import java.nio.file.*;
 import java.io.*;
+import java.nio.charset.*;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -37,5 +39,23 @@ public class PersistenciaPassageiro {
             return null;
         }
         return passageiros;
+    }
+
+    public static boolean persistePassageiros(List<Passageiro> passageiros){
+        Path path = Paths.get(nArq); 
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path, Charset.defaultCharset()))){ 
+            writer.println("cpf,nome,formaPgto,nroCartao,pontuacaoAcumulada,qtdadeAvaliacoes");
+            for(Passageiro p:passageiros) 
+                writer.format(Locale.ENGLISH,
+                              "%s,%s,%s,%s,%d,%d\n",
+                              p.getCPF(),p.getNome(),p.getFormaPgto().toString(),
+                              p.getNroCartao(),p.getPontuacaoAcumulada(),
+                              p.getQtdadeAvaliacoes());
+        } 
+        catch (IOException x) { 
+            System.err.format("Erro de E/S: %s%n", x); 
+            return false;
+        } 
+        return true;
     }
 }
