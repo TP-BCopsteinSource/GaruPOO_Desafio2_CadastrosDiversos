@@ -13,6 +13,11 @@ public class App {
         passageiros = PersistenciaPassageiro.carregaPassageiros();
         passageiros.forEach(p->System.out.println(p));
 
+        List<Motorista> motoristas;
+        System.out.println("\nMotoristas:");
+        motoristas = PersistenciaMotoristas.carregaMotoristas();
+        motoristas.forEach(m->System.out.println(m));
+
         /*
         veiculos.add(new Veiculo("WQY8J833","PORSHE","PRETO",Veiculo.CategoriaVeiculo.LUXO));
         PersistenciaVeiculos.persisteVeiculos(veiculos);
@@ -25,6 +30,12 @@ public class App {
         passageiros = PersistenciaPassageiro.carregaPassageiros();
         System.out.println("\nNova lista de passageiros:");
         passageiros.forEach(p->System.out.println(p));
+        
+        motoristas.add(new Motorista("9587865440","Ana Lucia","WQY8J833",FormaPagamento.CARTAO,55,14));
+        PersistenciaMotoristas.persisteMotoristas(motoristas);
+        motoristas = PersistenciaMotoristas.carregaMotoristas();
+        System.out.println("\nNova lista de Motoristas:");
+        motoristas.forEach(m->System.out.println(m));
         */
     }
 }
