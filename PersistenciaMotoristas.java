@@ -16,7 +16,7 @@ public class PersistenciaMotoristas {
         List<Motorista> motoristas = new LinkedList<>();
 
         String currDir = Paths.get("").toAbsolutePath().toString();
-        String caminhoCompleto = currDir + "\\" + nArq;
+        String caminhoCompleto = currDir + "/" + nArq;
         Path refArq = Paths.get(caminhoCompleto);
 
         // cpf,nome,placaVeiculo,formaPgto,pontuacaoAcumulada,qtdadeAvaliacoes

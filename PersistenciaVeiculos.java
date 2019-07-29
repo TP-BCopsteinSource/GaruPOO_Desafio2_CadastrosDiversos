@@ -22,7 +22,7 @@ public class PersistenciaVeiculos {
         List<Veiculo> veiculos = new LinkedList<>();
 
         String currDir = Paths.get("").toAbsolutePath().toString();
-        String caminhoCompleto = currDir+"\\"+nArq;
+        String caminhoCompleto = currDir+"/"+nArq;
         Path refArq = Paths.get(caminhoCompleto);
 
         try {

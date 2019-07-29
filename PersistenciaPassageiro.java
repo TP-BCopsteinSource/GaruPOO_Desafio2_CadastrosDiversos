@@ -16,7 +16,7 @@ public class PersistenciaPassageiro {
         List<Passageiro> passageiros = new LinkedList<>();
 
         String currDir = Paths.get("").toAbsolutePath().toString();
-        String caminhoCompleto = currDir + "\\" + nArq;
+        String caminhoCompleto = currDir + "/" + nArq;
         Path refArq = Paths.get(caminhoCompleto);
 
         //cpf,nome,formaPgto,nroCartao,pontuacaoAcumulada,qtdadeAvaliacoes
